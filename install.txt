@@ -1,0 +1,18 @@
+1) unpack "asset-manager.1.0.rar" in the site root or copy the files from the archive in their coresponding folders in the site root.
+
+2) Go to Control Panel/Components/New 
+	2.1) system name 		-> asset-manager
+	2.2) public name 		-> Asset Manager
+	2.3) PHP Class Name 	-> plugins/assetmanager/cmp/AssetManager
+
+3) Import lingual variables:
+
+	
+	3.1) Go to Control Panel(cp) -> System -> Languages -> "Import from a File" (default English version is provided)
+	3.2) choose en.ini file
+	3.3) click "Import from file"
+	
+	
+This is all :)
+
+Thank you for your interest and enjoy SBND F&CMS - Framework & CMS for PHP developers.
