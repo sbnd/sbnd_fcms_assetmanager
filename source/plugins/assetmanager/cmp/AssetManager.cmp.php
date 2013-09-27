@@ -24,20 +24,23 @@
 
 /**
  * @author Evgeni Baldzhiyski
- * @version 0.1
+ * @version 0.2
  * @since 13.02.2013
  */
-class AssetManager extends CmsComponent {
-
+class AssetManager extends CmsBox {
 	public $maxFileSize = 300000;
 	public $allowedTypes = "*";
 	public $upload_path = "upload/";
 	public $storage = "assets";
+	public $manager =  "assetmanager";
 	
 	function main(){
 		$this->unsetCmpPermition('edit');
 		
 		$this->setCmpPermition('folders-manager', BASIC_LANGUAGE::init()->get('folders-manager'));
+	}
+	function startPanel(){
+		return '<iframe frameborder="0" id="assetManagerContainer" src="'.BASIC::init()->ini_get('root_virtual').BASIC::init()->dirName().BASIC::init()->scriptName().'/editor/assetmanager" style="border:0pt none;width:100%;height:400px;"></iframe>';
 	}
 	
 	/**
@@ -51,7 +54,8 @@ class AssetManager extends CmsComponent {
 			'maxFileSize'   => $this->maxFileSize,
 			'allowedTypes'  => $this->allowedTypes,
 			'upload_path' 	=> $this->upload_path,
-			'storage' 		=> $this->storage
+			'storage' 		=> $this->storage,
+//			'manager'		=> $this->manager
 		);
 	}
 	/**
@@ -73,7 +77,15 @@ class AssetManager extends CmsComponent {
 			),
 			'storage' => array(
 				'text' => BASIC_LANGUAGE::init()->get('storage')
-			)
+			),
+// 			'manager' => array(
+// 				'text' => BASIC_LANGUAGE::init()->get('manager'),
+// 				'formtype' => 'browser',
+// 				'attributes' => array(
+// 					'resources' => array('plugins'),
+// 					'type' => 'folder'
+// 				)
+// 			)
 		);
-	}	
+	}
 }
